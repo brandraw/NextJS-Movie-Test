@@ -1,0 +1,19 @@
+"use client";
+
+import Link from "next/link";
+import styles from "../styles/Movie.module.css";
+import { useRouter } from "next/navigation";
+
+export default function Movie({ id, poster_path, title }) {
+  const router = useRouter();
+  const onClick = () => {
+    router.push(`movies/${id}`);
+  };
+
+  return (
+    <div className={styles.movie}>
+      <img src={poster_path} alt={title} onClick={onClick}></img>
+      <Link href={`movies/${id}`}>이동하기!!</Link>
+    </div>
+  );
+}
